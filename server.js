@@ -11,13 +11,13 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use('/styles.css', express.static(path.join(__dirname, 'public', 'styles.css'), {
+app.use('/styles.css', express.static(path.join(__dirname, 'styles.css'), {
     setHeaders: (res, path) => {
         res.setHeader('Content-Type', 'text/css');
     }
 }));
 
-app.use('/script.js', express.static(path.join(__dirname, 'public', 'script.js'), {
+app.use('/script.js', express.static(path.join(__dirname, 'script.js'), {
     setHeaders: (res, path) => {
         res.setHeader('Content-Type', 'application/javascript');
     }
