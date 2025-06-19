@@ -10,6 +10,19 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+app.use('/styles.css', express.static(path.join(__dirname, 'public', 'styles.css'), {
+    setHeaders: (res, path) => {
+        res.setHeader('Content-Type', 'text/css');
+    }
+}));
+
+app.use('/script.js', express.static(path.join(__dirname, 'public', 'script.js'), {
+    setHeaders: (res, path) => {
+        res.setHeader('Content-Type', 'application/javascript');
+    }
+}));
+
 app.use(express.static('public'));
 
 // Configure multer for file uploads
